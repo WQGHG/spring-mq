@@ -15,11 +15,11 @@ import javax.jms.TextMessage;
  */
 @Component
 @Slf4j
-public class MessageListener {
+public class JmsMessageListener {
 
     private ObjectMapper objectMapper;
 
-    public MessageListener(ObjectMapper objectMapper) {
+    public JmsMessageListener(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
     }
 

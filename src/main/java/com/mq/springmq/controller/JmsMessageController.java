@@ -2,7 +2,7 @@ package com.mq.springmq.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mq.springmq.model.MyMessage;
-import com.mq.springmq.artemis.MessagingService;
+import com.mq.springmq.artemis.JmsMessagingService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,16 +16,16 @@ import javax.annotation.Resource;
  */
 @Controller
 @Slf4j
-public class MessageController {
+public class JmsMessageController {
 
     @Resource
-    MessagingService messagingService;
+    JmsMessagingService jmsMessagingService;
 
     @GetMapping(value = "/send")
     @ResponseBody
     public String sendMessage(@RequestParam(value = "code", required = false) String code) throws JsonProcessingException {
         MyMessage myMessage = new MyMessage(code,"artemis myMessage test");
-        messagingService.sendMessage("jms/queue/message", myMessage);
+        jmsMessagingService.sendMessage("jms/queue/message", myMessage);
 
         return "200";
     }

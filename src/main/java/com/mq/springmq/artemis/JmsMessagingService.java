@@ -13,13 +13,13 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
-public class MessagingService {
+public class JmsMessagingService {
 
     private JmsTemplate jmsTemplate;
 
     private ObjectMapper objectMapper;
 
-    public MessagingService(JmsTemplate jmsTemplate, ObjectMapper objectMapper) {
+    public JmsMessagingService(JmsTemplate jmsTemplate, ObjectMapper objectMapper) {
         this.jmsTemplate = jmsTemplate;
         this.objectMapper = objectMapper;
     }
@@ -29,11 +29,11 @@ public class MessagingService {
         String txtMessage = objectMapper.writeValueAsString(message);
         try {
             jmsTemplate.send(destinationName, session -> session.createTextMessage(txtMessage));
+            log.info("send message success.");
         } catch (JmsException e) {
             log.error("send message failed.");
         }
 
-        log.info("send message success.");
     }
 
 
