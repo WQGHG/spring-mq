@@ -7,17 +7,16 @@ import lombok.ToString;
 import lombok.experimental.Accessors;
 
 /**
- * Created by wqg on 2022/11/27.
+ * Created by wqg on 2023/1/3.
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(chain = true)
 @ToString
-public class MyMessage {
+public class MyMessageSecond {
+    private String secondCode;
 
-    private String code;
-
-    private String Message;
+    private String secondMessage;
 
 }

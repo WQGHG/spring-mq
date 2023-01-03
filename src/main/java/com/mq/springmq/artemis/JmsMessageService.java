@@ -13,13 +13,13 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
-public class JmsMessagingService {
+public class JmsMessageService {
 
     private JmsTemplate jmsTemplate;
 
     private ObjectMapper objectMapper;
 
-    public JmsMessagingService(JmsTemplate jmsTemplate, ObjectMapper objectMapper) {
+    public JmsMessageService(JmsTemplate jmsTemplate, ObjectMapper objectMapper) {
         this.jmsTemplate = jmsTemplate;
         this.objectMapper = objectMapper;
     }

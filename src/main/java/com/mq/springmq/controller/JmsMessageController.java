@@ -2,10 +2,11 @@ package com.mq.springmq.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mq.springmq.model.MyMessage;
-import com.mq.springmq.artemis.JmsMessagingService;
+import com.mq.springmq.artemis.JmsMessageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -16,10 +17,11 @@ import javax.annotation.Resource;
  */
 @Controller
 @Slf4j
+@RequestMapping("/jms")
 public class JmsMessageController {
 
     @Resource
-    JmsMessagingService jmsMessagingService;
+    JmsMessageService jmsMessagingService;
 
     @GetMapping(value = "/send")
     @ResponseBody
