@@ -35,7 +35,7 @@ public class RabbitMessageService {
      * @param myMessage
      */
     public void sendFirstExchangeMessage(MyMessageFirst myMessage) {
-        rabbitTemplate.convertAndSend(EXCHANGE_FIRST,"", myMessage);
+        rabbitTemplate.convertAndSend(EXCHANGE_FIRST,"test", myMessage);
     }
 
     /**
